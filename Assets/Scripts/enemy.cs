@@ -19,7 +19,7 @@ public class enemy : MonoBehaviour {
          }
     
 
-        if (PlayerController.attack == true){
+        if (PlayerController.singleton.myAnimator.GetBool("atack")){
 
             Destroy(gameObject);
         }
