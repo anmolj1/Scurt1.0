@@ -23,6 +23,13 @@ public class PlayerController : MonoBehaviour {
 
 	public static PlayerController singleton;
 
+	public GameObject bulletToRight;
+	public GameObject bulletToLeft;
+	Vector2 bulletPos;
+	public float fireRate = 0.5f;
+	float nextFire = 0.0f;
+
+
 	// Use this for initialization
 	void Start () {
 		facingRight = true;
@@ -77,8 +84,22 @@ public class PlayerController : MonoBehaviour {
 			jump = true;
 		}
 
-		if (Input.GetKeyDown(KeyCode.LeftShift)){
+		if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > nextFire){
+			nextFire = Time.time + fireRate;
+			fire();
 			attack = true;
+		}
+	}
+
+	void fire(){
+		bulletPos = transform.position;
+		if (facingRight) {
+			bulletPos += new Vector2(+1f, 0f);
+			Instantiate(bulletToRight, bulletPos, Quaternion.identity);
+		}else{
+	
+			bulletPos += new Vector2(-1f, 0f);
+			Instantiate(bulletToLeft, bulletPos, Quaternion.identity);
 		}
 	}
 

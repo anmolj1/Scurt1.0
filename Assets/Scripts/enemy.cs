@@ -7,14 +7,16 @@ public class enemy : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision2D)
     {
-        if (collision2D.transform.name == "Player"){
+        Debug.Log(collision2D.transform.name);
+        if (collision2D.transform.name == "BulletToRight(Clone)"){
+            Destroy(gameObject);
         
         var hit = collision2D.gameObject;
         var Health = hit.GetComponent<Health>();
         
         if (Health  != null){
             Health.TakeDamage(10);
-            Destroy(gameObject);
+            
         
         }
 
