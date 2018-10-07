@@ -12,20 +12,13 @@ public class enemy : MonoBehaviour {
         var hit = collision2D.gameObject;
         var Health = hit.GetComponent<Health>();
         
-        if (Health  != null)
-        {
+        if (Health  != null){
             Health.TakeDamage(10);
-
-         }
-    
-
-        if (PlayerController.singleton.myAnimator.GetBool("atack")){
-
             Destroy(gameObject);
-        }
-            
+        
         }
 
     }
+}
 }
 

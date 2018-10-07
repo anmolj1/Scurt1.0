@@ -4,7 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuSelect : MonoBehaviour {
+	
 	public void ChangeScene( string sceneName){
 		SceneManager.LoadScene(sceneName);
+	}
+
+	public void quit () {
+		Application.Quit();
 	}
 }
