@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour {
 			jump = true;
 		}
 
-		if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > nextFire){
+		if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > nextFire && isGrounded){
 			nextFire = Time.time + fireRate;
 			fire();
 			attack = true;
